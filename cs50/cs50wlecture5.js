@@ -34,3 +34,31 @@ document.querySelectorAll(".color-btn").forEach((button)=> {
 document.querySelector("#select-color").onchange = function() {
   document.querySelector("#text-dropdown").style.color = this.value;
 }
+
+function countdown() {
+ 
+  const countDownNum = document.querySelector("#countdown-text");
+  const counterCountDownInit =  parseInt(countDownNum.innerText);
+  let counterCountDown = parseInt(countDownNum.innerText);
+
+  let myInterval = setInterval(()=> {
+    counterCountDown--;
+
+    countDownNum.innerHTML = counterCountDown.toString();
+    if(counterCountDown == -1) {
+      clearInterval(myInterval);
+
+      countDownNum.innerHTML = "Done!";
+
+      setTimeout(()=> countDownNum.innerHTML = counterCountDownInit.toString(), 1000)
+      
+    }  
+    
+  }, 1000);
+
+  
+}
+
+
+document.querySelector("#countdown-button").onclick = countdown;
+
