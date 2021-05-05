@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        @keyframes grow {
+            0% {
+                left: 0%;
+                font-size: 30px;
+            }
+
+            50% {
+                left: 50%;
+                font-size: 50px;
+            }
+
+            100% {
+                left: 0%;
+                font-size: 30px;
+            }
+        }
+
+        h1 {
+            position: relative;
+            animation-name: grow;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Start/ Stop animation</button>
+    <h1>Welcome!</h1>
+
+</body>
+
+<script>
+    document.querySelector("h1").style.animationPlayState = "paused";
+
+    document.querySelector("button").onclick = () => {
+        if (document.querySelector("h1").style.animationPlayState == "running") {
+            document.querySelector("h1").style.animationPlayState = "paused";
+        }
+        else {
+            document.querySelector("h1").style.animationPlayState = "running";
+        }
+    }
+
+</script>
+
+</html>
