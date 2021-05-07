@@ -6,11 +6,16 @@ import React, {useState} from 'react'
 
 function App() {
 	const [counter, setCounter] = useState(0);
-	const incrementCounter = () => setCounter(counter + 1);
+	const incrementCounter = (incrementValue) => setCounter(counter + incrementValue);
 	return (
 		<div className="App">
 		<Display message = {counter}/>
-		<Button onClickFunction = {incrementCounter}/>
+		<Button onClickFunction = {incrementCounter}  increment={1}/>
+		<Button onClickFunction = {incrementCounter}  increment={5}/>
+		<Button onClickFunction = {incrementCounter}  increment={10}/>
+		<Button onClickFunction = {incrementCounter}  increment={100}/>
+
+		
 		
     	</div>
   	);
@@ -23,9 +28,10 @@ function Display(props) {
 }
 
 function Button(props) {
+	const handleClick = () => props.onClickFunction(props.increment)
     return (
-        <button onClick={props.onClickFunction}>
-		Increase
+        <button onClick={handleClick}>
+		+{props.increment}
         </button>
     )
 }
